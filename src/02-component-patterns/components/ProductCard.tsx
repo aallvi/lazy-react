@@ -2,11 +2,19 @@ import styles from '../styles/styles.module.css'
 import { createContext, ReactElement, useContext, useState } from 'react'
 import { Value } from 'sass'
 import { UseProduct } from '../hooks/UseProduct'
-import { ProductCardProps, ProductContextProps, } from '../interfaces/interfaces'
+import {  Product, ProductContextProps, } from '../interfaces/interfaces'
 // import { ProductImage } from './ProductImage'
 // import { ProductTitle } from './ProductTitle'
 // import { ProductButtons } from './ProductButtons'
 
+
+export interface Props {
+  product: Product;
+  children?: React.ReactElement | React.ReactElement[];
+  className?: string;
+  style?: React.CSSProperties,
+
+}
 
 
 
@@ -20,7 +28,7 @@ import { ProductCardProps, ProductContextProps, } from '../interfaces/interfaces
 
 
 
-export const ProductCard = ({children,product} : ProductCardProps ) => {
+export const ProductCard = ({children,product , className, style} : Props ) => {
 
 
 
@@ -35,7 +43,7 @@ export const ProductCard = ({children,product} : ProductCardProps ) => {
         increaseBy,
         product
     }} >
-    <div  className={styles.productCard} >
+    <div  className={`${styles.productCard} ${className}`}  style={style} >
 
         {children}
           

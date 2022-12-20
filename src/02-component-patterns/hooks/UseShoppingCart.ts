@@ -22,35 +22,21 @@ export const UseShoppingCart = () => {
 
        setShoppingCart( oldShoppingCart => {
 
-          const productInCart: ProductInCart = oldShoppingCart[product.id] || {...product, count:0}
+      
 
-          if( Math.max (productInCart.count + count, 0) > 0 ){
-                 productInCart.count += count;
-
-                 return {
-                   ...oldShoppingCart,
-                   [product.id]: productInCart
-                 }
-          }
-             
-         //  borrar producto
+         if(count === 0){
+               
            const { [product.id]: toDelete, ...rest } = oldShoppingCart
-           console.log('toDelete',toDelete)
-           return rest
+           console.log(toDelete)
 
-         // if(count === 0){
+            return rest
+         }
                
-         //   const { [product.id]: toDelete, ...rest } = oldShoppingCart
-         //   console.log(toDelete)
+            return {
+             ...oldShoppingCart,
+             [product.id]: { ...product, count }
 
-         //    return rest
-         // }
-               
-         //    return {
-         //     ...oldShoppingCart,
-         //     [product.id]: { ...product, count }
-
-         //    }
+            }
        } )
 
        

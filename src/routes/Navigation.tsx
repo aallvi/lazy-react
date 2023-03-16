@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { Routes, Route, Link, NavLink, Navigate} from "react-router-dom";
-import { FormikAbstraction, FormikBasicPage, FormikComponents, FormikYupPage, RegisterPage } from '../03-forms/pages';
+import { DynamicForm, FormikAbstraction, FormikBasicPage, FormikComponents, FormikYupPage, RegisterFormikPage, RegisterFormikPageMore, RegisterPage } from '../03-forms/pages';
 
 
 import logo from "../assets/react.svg"
@@ -27,6 +27,12 @@ export const Navigation = () => {
                             <NavLink to='/register'  className={ ({isActive})=>  isActive ? 'nav-active' :'' } >Register Page</NavLink>
                       </li>
                       <li>
+                            <NavLink to='/register-formik-page'  className={ ({isActive})=>  isActive ? 'nav-active' :'' } >Register FormikPage</NavLink>
+                      </li>
+                      <li>
+                            <NavLink to='/register-formik-page-more'  className={ ({isActive})=>  isActive ? 'nav-active' :'' } >Register FormikPage More</NavLink>
+                      </li>
+                      <li>
                             <NavLink to='/formik-basic'  className={ ({isActive})=>  isActive ? 'nav-active' :'' } >Formik Page</NavLink>
                       </li>
                       <li>
@@ -37,6 +43,9 @@ export const Navigation = () => {
                       </li>
                       <li>
                             <NavLink to='/formik-abstraction'  className={ ({isActive})=>  isActive ? 'nav-active' :'' } >Formik abstraction</NavLink>
+                      </li>
+                      <li>
+                            <NavLink to='/dynamic-form'  className={ ({isActive})=>  isActive ? 'nav-active' :'' } >Dynamic Form</NavLink>
                       </li>
                       <li>
                             <NavLink to='/about' className={ ({isActive})=>  isActive ? 'nav-active' :'' } >About</NavLink>
@@ -53,10 +62,13 @@ export const Navigation = () => {
            <Routes>
 
                 <Route path='/register' element={<RegisterPage/>} />
+                <Route path='/register-formik-page' element={<RegisterFormikPage/>} />
+                <Route path='/register-formik-page-more' element={<RegisterFormikPageMore/>} />
                 <Route path='/formik-basic' element={<FormikBasicPage/>} />
                 <Route path='/formik-yup' element={<FormikYupPage/>} />
                 <Route path='/formik-components' element={<FormikComponents/>} />
                 <Route path='/formik-abstraction' element={<FormikAbstraction/>} />
+                <Route path='/dynamic-form' element={<DynamicForm/>} />
                 <Route path='users' element={<h1>Users</h1>} />
                 <Route path='home' element={<h1>Home</h1>} />
                 <Route path='/*' element={ <Navigate to='home' replace /> } />
